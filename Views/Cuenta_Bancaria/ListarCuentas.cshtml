@@ -1,0 +1,36 @@
+@model IEnumerable<pc2_leonardo.Models.CuentaBancarias>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cuentas Bancarias</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Lista de Cuentas Bancarias</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del Titular</th>
+                    <th>Tipo de Cuenta</th>
+                    <th>Saldo Inicial</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cuenta in Model)
+                {
+                    <tr>
+                        <td>@cuenta.Nombre_Titular</td>
+                        <td>@cuenta.Tipo_Cuenta</td>
+                        <td>@cuenta.SaldoInicial</td>
+                        <td>@cuenta.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
