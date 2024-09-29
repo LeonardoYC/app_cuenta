@@ -1,0 +1,51 @@
+@model pc2_leonardo.Models.CuentaBancarias
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Cuenta Bancaria</h2>
+        <form asp-controller="Cuenta_Bancaria" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Nombre_Titular" class="form-label">Nombre del Titular</label>
+                <input asp-for="Nombre_Titular" type="text" class="form-control" placeholder="Nombre del titular" required>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Tipo_Cuenta" class="form-label">Tipo de Cuenta</label>
+                <select class="form-select" asp-for="Tipo_Cuenta" required>
+                    <option selected disabled>Selecciona el tipo de cuenta</option>
+                    <option value="checking">Cuenta Corriente (Checking)</option>
+                    <option value="savings">Cuenta de Ahorros (Savings)</option>
+                    <option value="moneyMarket">Cuenta de Mercado Monetario (Money Market)</option>
+                    <option value="cd">Certificado de Depósito (CD)</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SaldoInicial" class="form-label">Saldo Inicial</label>
+                <input asp-for="SaldoInicial" type="number" class="form-control" placeholder="Saldo inicial" required>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="email@gmail.com" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success">
+                @ViewBag.Message
+            </div>
+        }
+    </div>
+</body>
+</html>
